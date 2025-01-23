@@ -45,7 +45,7 @@ class Tool(db.Model):
     description = db.Column(db.Text)
     url = db.Column(db.String(200))
     notes = db.Column(db.Text)
-    rating = db.Column(db.Integer)  # 1-5 scale
+    logo = db.Column(db.String(200))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     tags = db.relationship('Tag', secondary=tool_tags, backref='tools')
     projects = db.relationship('Project', secondary=project_tools, backref='tools')

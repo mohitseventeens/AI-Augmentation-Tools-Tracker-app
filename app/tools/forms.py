@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SelectField, IntegerField
-from wtforms.validators import DataRequired, Length, URL, NumberRange
+from wtforms.validators import DataRequired, Length, URL, NumberRange, InputRequired
 
 class ToolForm(FlaskForm):
     name = StringField('Tool Name', validators=[DataRequired(), Length(max=100)])
@@ -14,6 +14,4 @@ class ToolForm(FlaskForm):
     description = TextAreaField('Description')
     url = StringField('URL', validators=[URL(), Length(max=200)])
     notes = TextAreaField('Notes')
-    rating = IntegerField('Rating (1-5)', validators=[
-        NumberRange(min=1, max=5, message='Rating must be between 1 and 5')
-    ])
+    logo = StringField('Logo URL', validators=[URL(), Length(max=200)])

@@ -23,7 +23,6 @@ def add_tool():
             description=form.description.data,
             url=form.url.data,
             notes=form.notes.data,
-            rating=form.rating.data,
             user_id=current_user.id
         )
         db.session.add(tool)
@@ -47,7 +46,6 @@ def edit_tool(id):
         tool.description = form.description.data
         tool.url = form.url.data
         tool.notes = form.notes.data
-        tool.rating = form.rating.data
         db.session.commit()
         flash('Tool updated successfully!', 'success')
         return redirect(url_for('tools.index'))

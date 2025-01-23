@@ -1,6 +1,6 @@
 {% extends "tools/base.html" %}
 
-{% block title %}Add Tool{% endblock %}
+{% block title %}Edit {{ tool.name }}{% endblock %}
 
 {% block tools_content %}
 <div class="max-w-2xl mx-auto">
@@ -40,7 +40,7 @@
         
         
         <div class="mt-6">
-            <button type="submit" class="btn btn-primary">Add Tool</button>
+            <button type="submit" class="btn btn-primary">Update Tool</button>
             <a href="{{ url_for('tools.index') }}" class="btn btn-outline ml-2">Cancel</a>
         </div>
     </form>
