@@ -24,8 +24,10 @@ def create_app(config_class=Config):
 
     from app.auth.routes import auth_bp
     from app.main.routes import bp as main_bp
+    from app.tools.routes import tools_bp
     
     app.register_blueprint(auth_bp, url_prefix='/auth')
     app.register_blueprint(main_bp)
+    app.register_blueprint(tools_bp, url_prefix='/tools')
 
     return app

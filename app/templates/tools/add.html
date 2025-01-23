@@ -1,0 +1,46 @@
+{% extends "tools/base.html" %}
+
+{% block title %}Add Tool{% endblock %}
+
+{% block tools_content %}
+<div class="max-w-2xl mx-auto">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        
+        <div class="form-control">
+            {{ form.name.label(class="label") }}
+            {{ form.name(class="input input-bordered") }}
+        </div>
+        
+        <div class="form-control">
+            {{ form.category.label(class="label") }}
+            {{ form.category(class="select select-bordered w-full") }}
+        </div>
+        
+        <div class="form-control">
+            {{ form.description.label(class="label") }}
+            {{ form.description(class="textarea textarea-bordered") }}
+        </div>
+        
+        <div class="form-control">
+            {{ form.url.label(class="label") }}
+            {{ form.url(class="input input-bordered") }}
+        </div>
+        
+        <div class="form-control">
+            {{ form.notes.label(class="label") }}
+            {{ form.notes(class="textarea textarea-bordered") }}
+        </div>
+        
+        <div class="form-control">
+            {{ form.rating.label(class="label") }}
+            {{ form.rating(class="input input-bordered") }}
+        </div>
+        
+        <div class="mt-6">
+            <button type="submit" class="btn btn-primary">Add Tool</button>
+            <a href="{{ url_for('tools.index') }}" class="btn btn-outline ml-2">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "tools/base.html" %}
+
+{% block title %}My Tools{% endblock %}
+
+{% block actions %}
+    <a href="{{ url_for('tools.add_tool') }}" class="btn btn-primary">
+        Add Tool
+    </a>
+{% endblock %}
+
+{% block tools_content %}
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for tool in tools %}
+    <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+            <h2 class="card-title">{{ tool.name }}</h2>
+            <div class="badge badge-info">{{ tool.category }}</div>
+            <p>{{ tool.description|truncate(100) }}</p>
+            <div class="rating rating-sm">
+                {% for i in range(1, 6) %}
+                <input type="radio" 
+                       name="rating-{{ tool.id }}" 
+                       class="mask mask-star" 
+                       {% if tool.rating == i %}checked{% endif %} 
+                       disabled />
+                {% endfor %}
+            </div>
+            <div class="card-actions justify-end mt-4">
+                <a href="{{ url_for('tools.edit_tool', id=tool.id) }}" 
+                   class="btn btn-sm btn-outline">Edit</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
